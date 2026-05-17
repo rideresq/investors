@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RideResQ - Investor Pitch Deck</title>
+    <meta name="description" content="RideResQ is reinventing roadside assistance with AI-powered dispatch. Pre-seed investment opportunity.">
+    <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --asphalt: #0d0d0f;
+            --concrete: #1a1a1e;
+            --steel: #2a2a32;
+            --amber: #ffb800;
+            --headlight: #f0f0f0;
+            --fog: #888894;
+            --success: #34c759;
+            --danger: #ff3b30;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--asphalt);
+            color: var(--headlight);
+            line-height: 1.6;
+        }
+        
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem 2rem;
+            border-bottom: 1px solid var(--steel);
+            position: relative;
+        }
+        
+        .slide-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .slide-number {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--fog);
+        }
+        
+        .logo {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.5rem;
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+        }
+        
+        .logo span { color: var(--amber); }
+        
+        h1 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--amber);
+        }
+        
+        h3 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            color: var(--fog);
+            margin-bottom: 1rem;
+            max-width: 700px;
+        }
+        
+        .highlight { color: var(--amber); }
+        .white { color: var(--headlight); }
+        
+        /* Title slide */
+        .title-slide {
+            text-align: center;
+        }
+        
+        .title-slide h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+        }
+        
+        .tagline {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.25rem;
+            color: var(--amber);
+            margin-bottom: 2rem;
+        }
+        
+        .raise-badge {
+            display: inline-block;
+            background: var(--amber);
+            color: var(--asphalt);
+            font-family: 'Archivo Black', sans-serif;
+            padding: 0.75rem 2rem;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+        }
+        
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .stat {
+            text-align: center;
+            padding: 2rem;
+            background: var(--concrete);
+            border: 1px solid var(--steel);
+        }
+        
+        .stat-value {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 3rem;
+            color: var(--amber);
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--fog);
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Problem/Solution cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .card {
+            background: var(--concrete);
+            border: 1px solid var(--steel);
+            padding: 1.5rem;
+        }
+        
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card h3 {
+            color: var(--headlight);
+        }
+        
+        .card p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+        
+        /* Comparison table */
+        .comparison {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+        
+        .comparison th,
+        .comparison td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--steel);
+        }
+        
+        .comparison th {
+            font-family: 'Archivo Black', sans-serif;
+            color: var(--amber);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        
+        .comparison td {
+            color: var(--fog);
+        }
+        
+        .comparison .check { color: var(--success); }
+        .comparison .x { color: var(--danger); }
+        
+        /* Timeline */
+        .timeline {
+            margin: 2rem 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .timeline-marker {
+            width: 40px;
+            height: 40px;
+            background: var(--amber);
+            color: var(--asphalt);
+            font-family: 'Archivo Black', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 0.25rem;
+        }
+        
+        .timeline-content p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+        
+        /* Team */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .team-member {
+            background: var(--concrete);
+            border: 1px solid var(--steel);
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .team-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--amber);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+        
+        .team-name {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .team-role {
+            color: var(--amber);
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .team-bio {
+            font-size: 0.9rem;
+            color: var(--fog);
+        }
+        
+        /* Use of funds */
+        .funds-bar {
+            background: var(--steel);
+            height: 40px;
+            display: flex;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+        
+        .funds-segment {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 0.8rem;
+            color: var(--asphalt);
+        }
+        
+        .funds-legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .legend-color {
+            width: 16px;
+            height: 16px;
+        }
+        
+        .legend-text {
+            font-size: 0.9rem;
+            color: var(--fog);
+        }
+        
+        /* CTA slide */
+        .cta-slide {
+            text-align: center;
+        }
+        
+        .contact-info {
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+        }
+        
+        .contact-item a {
+            color: var(--amber);
+            text-decoration: none;
+        }
+        
+        /* Nav dots */
+        .nav-dots {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            z-index: 100;
+        }
+        
+        .nav-dot {
+            width: 10px;
+            height: 10px;
+            border: 2px solid var(--fog);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .nav-dot:hover,
+        .nav-dot.active {
+            background: var(--amber);
+            border-color: var(--amber);
+        }
+        
+        @media (max-width: 768px) {
+            .slide { padding: 3rem 1.5rem; }
+            .nav-dots { display: none; }
+            .logo { font-size: 1.25rem; }
+            .slide-number { top: 1.5rem; right: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Title -->
+    <section class="slide title-slide" id="slide-1">
+        <div class="slide-content">
+            <h1>Ride<span class="highlight">ResQ</span></h1>
+            <p class="tagline">AI-Powered Roadside Assistance</p>
+            <p class="white" style="font-size: 1.5rem; max-width: none;">Reinventing the $12B roadside assistance market<br>with intelligent dispatch and zero surge pricing.</p>
+            <div class="raise-badge">PRE-SEED: RAISING $2M</div>
+        </div>
+        <span class="slide-number">01 / 12</span>
+    </section>
+    
+    <!-- Slide 2: Problem -->
+    <section class="slide" id="slide-2">
+        <div class="logo">Ride<span>ResQ</span></div>
+        <div class="slide-content">
+            <h2>The Problem</h2>
+            <p class="white" style="font-size: 1.3rem;">Roadside assistance is broken.</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">💸</div>
+                    <h3>Predatory Pricing</h3>
+                    <p>Surge pricing up to 3x during peak demand. A $100 tow becomes $300+ when you're most vulnerable.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⏱️</div>
+                    <h3>Long Wait Times</h3>
+                    <p>Average wait of 45-60+ minutes. Manual dispatch means inefficient routing and wasted time.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📞</div>
+                    <h3>Outdated Operations</h3>
+                    <p>Dispatch centers still use phone trees and manual coordination. It's 2026 but feels like 1996.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💳</div>
+                    <h3>Membership Lock-in</h3>
+                    <p>AAA charges $60-150/year whether you use it or not. Most members never make a claim.</p>
+                </div>
+            </div>
+        </div>
+        <span class="slide-number">02 / 12</span>
+    </section>
+    
+    <!-- Slide 3: Solution -->
+    <section class="slide" id="slide-3">
+        <div class="logo">Ride<span>ResQ</span></div>
+        <div class="slide-content">
+            <h2>Our Solution</h2>
+            <p class="white" style="font-size: 1.3rem;">AI-powered dispatch that's faster, cheaper, and transparent.</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">🤖</div>
+                    <h3>AI Voice Agent</h3>
+                    <p>Natural conversation handles intake 24/7. No hold times, no phone trees. Just help.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📍</div>
+                    <h3>Smart Dispatch</h3>
+                    <p>Real-time routing finds the nearest available provider. GPS integration for precise location.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💰</div>
+                    <h3>No Surge Pricing</h3>
+                    <p>Fair, transparent rates always. AI compares local providers to get the best price.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🚫</div>
+                    <h3>No Membership</h3>
+                    <p>Pay only when you need help. No annual fees, no commitments, no wasted money.</p>
+                </div>
+            </div>
+        </div>
+        <span class="slide-number">03 / 12</span>
+    </section>
+    
+    <!-- Slide 4: How It Works -->
+    <section class="slide" id="slide-4">
+        <div class="logo">Ride<span>ResQ</span></div>
+        <div class="slide-content">
+            <h2>How It Works</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">1</div>
+                    <div class="timeline-content">
+                        <h3>Customer Calls or Uses Web App</h3>
+                        <p>1-844-789-RESQ or rideresq.com — GPS location captured automatically</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">2</div>
+                    <div class="timeline-content">
+                        <h3>AI Handles the Conversation</h3>
+                        <p>Natural voice agent gathers details: service needed, vehicle info, special circumstances</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">3</div>
+                    <div class="timeline-content">
+                        <h3>Smart Dispatch Finds Best Provider</h3>
+                        <p>Algorithm matches to nearest available provider, shows transparent pricing upfront</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">4</div>
+                    <div class="timeline-content">
+                        <h3>Provider Accepts, Customer Tracked</h3>
+                        <p>Real-time ETA updates via SMS. Customer pays provider directly. We take 10-15%.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span class="slide-number">04 / 12</span>
+    </section>
+    
+    <!-- Slide 5: Market -->
+    <section class="slide" id="slide-5">
+        <div class="logo">Ride<span>ResQ</span></div>
+        <div class="slide-content">
+            <h2>Market Opportunity</h2>
+            
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-value">$12B</div>
+                    <div class="stat-label">US Roadside Market</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">69M</div>
+                    <div class="stat-label">Roadside calls/year</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">$175</div>
+                    <div class="stat-label">Avg service cost</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">40%</div>
+                    <div class="stat-label">Non-AAA market</div>
+                </div>
+            </div>
+            
+            <p style="margin-top: 2rem;">The roadside assistance market is dominated by legacy players (AAA, manufacturer programs) using outdated technology. 40% of drivers have no coverage and pay inflated rates when stranded.</p>
+            
+            <p><span class="highlight">Our wedge:</span> Start with the underserved pay-per-use segment, then expand to fleet contracts and insurance partnerships.</p>
+        </div>
+        <span class="slide-number">05 / 12</span>
+    </section>
+    
+    <!-- Slide 6: Business Model -->
+    <section class="slide" id="slide-6">
+        <div class="logo">Ride<span>ResQ</span></div>
+        <div class="slide-content">
+            <h2>Business Model</h2>
+            <p class="white" style="font-size: 1.2rem;">Two-sided marketplace with AI efficiency.</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">👤</div>
+                    <h3>Consumer Side</h3>
+                    <p><strong>$0 to customer</strong> — No membership, no fees. They pay the provider directly at fair market rates.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🚛</div>
+                    <h3>Provider Side</h3>
+                    <p><strong>10-15% per job</strong> — Tow trucks & shops pay only when they complete a job. Zero upfront cost, zero risk.</p>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 2rem; color: var(--amber);">Unit Economics (Target)</h3>
+            <table class="comparison">
+                <tr>
+                    <td>Average job value</td>
+                    <td class="white">$125</td>
+                </tr>
+                <tr>
+                    <td>RideResQ take rate</td>
+                    <td class="white">12.5% ($15.63)</td>
+                </tr>
+                <tr>
+                    <td>AI dispatch cost</td>
+                    <td class="white">~$0.50/call</td>
+                </tr>
+                <tr>
+                    <td>Gross margin per job</td>
+                    <td class="highlight">$15+ (96%+)</td>
+                </tr>
+            </table>
+        </div>
+        <span class="slide-number">06 / 12</span>
+    </section>
+    
+    <!-- Slide 7: Competitive Advantage -->
+    <section class="slide" id="slide-7">
+        <div class="logo">Ride<span>ResQ</span></div>
+        <div class="slide-content">
+            <h2>Why We Win</h2>
+            
+            <table class="comparison">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>RideResQ</th>
+                        <th>AAA</th>
+                        <th>Honk/Urgently</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Membership fee</td>
+                        <td class="check">$0</td>
+                        <td class="x">$60-150/yr</td>
+                        <td class="check">$0</td>
+                    </tr>
+                    <tr>
+                        <td>Surge pricing</td>
+                        <td class="check">Never</td>
+                        <td class="check">Never</td>
+                        <td class="x">Yes</td>
+                    </tr>
+                    <tr>
+                        <td>AI dispatch</td>
+                        <td class="check">Full AI</td>
+                        <td class="x">Human call center</td>
+                        <td>Partial</td>
+                    </tr>
+                    <tr>
+                        <td>Avg response</td>
+                        <td class="highlight">15-25 min</td>
+                        <td>45-60 min</td>
+                        <td>30-45 min</td>
+                    </tr>
+                    <tr>
+                        <td>24/7 voice</td>
+                        <td class="check">AI agent</td>
+                        <td class="check">Call center</td>
+                        <td class="x">App only</td>
+                    </tr>
+                    <tr>
+                        <td>Dispatch cost</td>
+                        <td class="highlight">~$0.50</td>
+                        <td>$8-15</td>
+                        <td>$3-5</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p style="margin-top: 2rem;"><span class="highlight">Our moat:</span> AI-first architecture means we can operate at 10-20x lower cost per dispatch than human call centers. This margin advantage compounds as we scale.</p>
+        </div>
+        <span class="slide-number">07 / 12</span>
+    </section>
+    
+    <!-- Slide 8: Traction -->
+    <section class="slide" id="slide-8">
+        <div class="logo">Ride<span>ResQ</span></div>
+        <div class="slide-content">
+            <h2>Traction & Milestones</h2>
+            
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-value">✓</div>
+                    <div class="stat-label">MVP Live</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">✓</div>
+                    <div class="stat-label">AI Agent Deployed</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">✓</div>
+                    <div class="stat-label">Toll-Free Number</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">✓</div>
+                    <div class="stat-label">Dispatch Dashboard</div>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 2rem; color: var(--amber);">What We've Built</h3>
+            <ul style="color: var(--fog); margin-left: 1.5rem;">
+                <li>Full-stack dispatch platform (FastAPI + Postgres)</li>
+                <li>AI voice agent handling inbound calls 24/7</li>
+                <li>Real-time provider job accept/decline system</li>
+                <li>Customer GPS tracking and ETA notifications</li>
+                <li>Admin dashboard for dispatch operations</li>
+                <li>GEO-optimized landing pages for customer acquisition</li>
+            </ul>
+            
+            <p style="margin-top: 1.5rem;"><span class="highlight">Current focus:</span> Scaling provider network in Denver + San Antonio before aggressive customer acquisition.</p>
+        </div>
+        <span class="slide-number">08 / 12</span>
+    </section>
+    
+    <!-- Slide 9: Go-to-Market -->
+    <section class="slide" id="slide-9">
+        <div class="logo">Ride<span>ResQ</span></div>
+        <div class="slide-content">
+            <h2>Go-to-Market Strategy</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">→</div>
+                    <div class="timeline-content">
+                        <h3>Phase 1: Provider Network (Now)</h3>
+                        <p>Sign up tow operators and repair shops in target cities. Zero risk pitch: "Pay only when you complete jobs."</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">→</div>
+                    <div class="timeline-content">
+                        <h3>Phase 2: Consumer Acquisition</h3>
+                        <p>GEO/SEO for "towing near me" searches. Google Ads for high-intent roadside queries. AI-optimized landing pages.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">→</div>
+                    <div class="timeline-content">
+                        <h3>Phase 3: B2B Expansion</h3>
+                        <p>Fleet management contracts. Insurance company partnerships. Car dealership service programs.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">→</div>
+                    <div class="timeline-content">
+                        <h3>Phase 4: Geographic Expansion</h3>
+                        <p>Replicate city-by-city playbook. Target 25 metros in 24 months post-funding.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span class="slide-number">09 / 12</span>
+    </section>
+    
+    <!-- Slide 10: Team -->
+    <section class="slide" id="slide-10">
+        <div class="logo">Ride<span>ResQ</span></div>
+        <div class="slide-content">
+            <h2>Team</h2>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-avatar">👤</div>
+                    <div class="team-name">Co-Founder</div>
+                    <div class="team-role">CEO</div>
+                    <p class="team-bio">Business development, operations, and go-to-market strategy.</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-avatar">👤</div>
+                    <div class="team-name">Co-Founder</div>
+                    <div class="team-role">CTO</div>
+                    <p class="team-bio">Technical architecture, product development, and AI systems.</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-avatar">🤖</div>
+                    <div class="team-name">Hunter</div>
+                    <div class="team-role">AI Co-Founder</div>
+                    <p class="team-bio">24/7 development, dispatch optimization, and operational support.</p>
+                </div>
+            </div>
+            
+            <p style="margin-top: 2rem; text-align: center;"><span class="highlight">Lean team, AI-augmented.</span> We move fast and ship daily.</p>
+        </div>
+        <span class="slide-number">10 / 12</span>
+    </section>
+    
+    <!-- Slide 11: The Ask -->
+    <section class="slide" id="slide-11">
+        <div class="logo">Ride<span>ResQ</span></div>
+        <div class="slide-content">
+            <h2>The Ask</h2>
+            
+            <div class="stat" style="max-width: 400px; margin: 2rem auto;">
+                <div class="stat-value">$2M</div>
+                <div class="stat-label">Pre-Seed Round</div>
+            </div>
+            
+            <h3 style="color: var(--amber); margin-top: 2rem;">Use of Funds</h3>
+            
+            <div class="funds-bar">
+                <div class="funds-segment" style="width: 50%; background: var(--amber);">50%</div>
+                <div class="funds-segment" style="width: 30%; background: var(--success);">30%</div>
+                <div class="funds-segment" style="width: 20%; background: var(--fog);">20%</div>
+            </div>
+            
+            <div class="funds-legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: var(--amber);"></div>
+                    <span class="legend-text"><strong>50%</strong> — Marketing & Customer Acquisition</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: var(--success);"></div>
+                    <span class="legend-text"><strong>30%</strong> — Operations & Scaling</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: var(--fog);"></div>
+                    <span class="legend-text"><strong>20%</strong> — Product & Engineering</span>
+                </div>
+            </div>
+            
+            <h3 style="color: var(--amber); margin-top: 2rem;">18-Month Milestones</h3>
+            <ul style="color: var(--fog); margin-left: 1.5rem;">
+                <li>25 cities operational</li>
+                <li>500+ provider partners</li>
+                <li>10,000+ completed jobs</li>
+                <li>$1.5M+ ARR run rate</li>
+                <li>Series A ready</li>
+            </ul>
+        </div>
+        <span class="slide-number">11 / 12</span>
+    </section>
+    
+    <!-- Slide 12: Contact -->
+    <section class="slide cta-slide" id="slide-12">
+        <div class="slide-content">
+            <h1>Let's Talk</h1>
+            <p class="tagline">Join us in reinventing roadside assistance.</p>
+            
+            <div class="contact-info">
+                <p class="contact-item">🌐 <a href="https://rideresq.com">rideresq.com</a></p>
+                <p class="contact-item">📞 <a href="tel:+18447897377">1-844-789-RESQ</a></p>
+                <p class="contact-item">📧 <a href="mailto:invest@rideresq.com">invest@rideresq.com</a></p>
+            </div>
+            
+            <div class="raise-badge" style="margin-top: 3rem;">PRE-SEED: $2M ROUND OPEN</div>
+        </div>
+        <span class="slide-number">12 / 12</span>
+    </section>
+    
+    <!-- Navigation dots -->
+    <nav class="nav-dots">
+        <a href="#slide-1" class="nav-dot active"></a>
+        <a href="#slide-2" class="nav-dot"></a>
+        <a href="#slide-3" class="nav-dot"></a>
+        <a href="#slide-4" class="nav-dot"></a>
+        <a href="#slide-5" class="nav-dot"></a>
+        <a href="#slide-6" class="nav-dot"></a>
+        <a href="#slide-7" class="nav-dot"></a>
+        <a href="#slide-8" class="nav-dot"></a>
+        <a href="#slide-9" class="nav-dot"></a>
+        <a href="#slide-10" class="nav-dot"></a>
+        <a href="#slide-11" class="nav-dot"></a>
+        <a href="#slide-12" class="nav-dot"></a>
+    </nav>
+    
+    <script>
+        // Update active nav dot on scroll
+        const dots = document.querySelectorAll('.nav-dot');
+        const slides = document.querySelectorAll('.slide');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    dots.forEach(dot => {
+                        dot.classList.toggle('active', dot.getAttribute('href') === '#' + id);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        slides.forEach(slide => observer.observe(slide));
+    </script>
+</body>
+</html>
